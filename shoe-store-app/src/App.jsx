@@ -7,7 +7,7 @@ function App() {
     { id: 1, name: "Running Shoes", price: 59.99, image: "https://placehold.co/600x400/000000/FFF" },
     { id: 2, name: "Casual Sneakers", price: 49.99, image: "https://placehold.co/600x400/000000/FFF" },
     { id: 3, name: "Formal Loafers", price: 79.99, image: "https://placehold.co/600x400/000000/FFF" },
-    { id: 3, name: "Formal Loafers", price: 79.99, image: "https://placehold.co/600x400/000000/FFF" },
+    { id: 4, name: "Formal Loafers", price: 79.99, image: "https://placehold.co/600x400/000000/FFF" },
   ];
 
   const [cart, setCart] = useState([]);

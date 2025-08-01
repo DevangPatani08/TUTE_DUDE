@@ -1,0 +1,43 @@
+/* Product card styling */
+.card {
+  transition: transform 0.2s ease-in-out;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+
+/* Payment form styling */
+.payment-form .form-control {
+  margin-bottom: 1rem;
+}
+
+/* Cart table styling */
+.table tbody tr:last-child td {
+  border-bottom-width: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .payment-summary {
+    margin-top: 2rem;
+  }
+}
+
+/* Custom button styles */
+.btn-checkout {
+  background-color: #20c997;
+  border-color: #20c997;
+}
+
+.btn-checkout:hover {
+  background-color: #1aa179;
+  border-color: #1aa179;
+}
