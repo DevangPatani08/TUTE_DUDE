@@ -1,12 +1,28 @@
-# React + Vite
+# Assignment - 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objective
 
-Currently, two official plugins are available:
+The goal of this assignment is to create a basic To-Do application using React. The app will allow users to add tasks to a list, manage the state of these tasks, and ensure a dynamic user interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requirements
 
-## Expanding the ESLint configuration
+### Todo: Add an Input Field
+- Text Input Field: Provide a text input field where users can type in the title of their to-do task.
+- Button: Create a button to add a Todo
+- Show Alert: On button click, display an alert if the input field is empty when entering a todo. If the input is not empty, show a successful add message.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Display Added Items
+- List of Tasks: After clicking the "Add" button, the task should appear below the input field as part of a to-do list.
+- Add complete functionality: Use a checkbox with each todo for showing complete when the checkbox is checked
+
+### UI/UX
+- Dynamic Rendering: The list of added to-dos should be displayed below the input field and rendered dynamically without reloading the page.
+- Attractive Design: Create a good-looking website 
+- Submission Guidelines
+- Deploy the React code on Netlify and Vercel.
+- If you don’t know how to deploy React code on a free hosting platform, watch this YouTube video [Watch Video](https://youtu.be/AP0fKMrmyKA?si=wKbklcCA3rGCFDb7)
+- Deploy Link: Submit Deploy Link in Readme.md file of task-related GitHub repo.
+- Submission Link: Submit the GitHub repo Link in the Submission Box.
+
+## Assignment - 2 Deployment
+View the [To-Do App](https://tutedude-to-do-app-assignment-2.netlify.app/)
