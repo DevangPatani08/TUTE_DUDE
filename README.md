@@ -136,4 +136,4 @@ The Personal Finance Tracker application is designed to help users efficiently m
 - Add some default data
 
 ### Assignment - 7 Deployment
-View the [Finance App]()
+View the [Finance App](https://tutedude-finance-app-assignment-7.netlify.app/)
