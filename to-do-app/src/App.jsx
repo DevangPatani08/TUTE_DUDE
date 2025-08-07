@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 import './App.css'
 
 class App extends Component {
@@ -7,14 +7,17 @@ class App extends Component {
     this.state = {
       inputValue: '', // take input from user
       listContainer: [], // array to store tasks
+      error: '', // for validation errors
+      success: '' // for success messages
     }
   }
   
   // input handler
   handleInput = (event) => {
-    // console.log(event.target.value);
     this.setState({
-      inputValue: event.target.value
+      inputValue: event.target.value,
+      error: '', // clear error when user types
+      success: '' // clear success message when user types
     });
   };
   
@@ -22,20 +25,29 @@ class App extends Component {
   addTask = () => {
     const { inputValue, listContainer } = this.state;
     
-    if (inputValue.trim() === '') { //check if input is not empty
-      alert('Please enter a task!...');
+    if (inputValue.trim() === '') {
+      this.setState({
+        error: 'Please enter a task!...',
+        success: ''
+      });
     } else {
       const newTask = {
         id: Date.now(),
         text: inputValue,
         completed: false,
       };
-      // console.log(newTask);
+      
       this.setState({
         listContainer: [...listContainer, newTask],
         inputValue: '', // clear input field
+        error: '', // clear any previous error
+        success: 'Task added successfully!...'
       });
-      alert('Task added successfully!...');
+
+      // Clear success message after 3 seconds
+      setTimeout(() => {
+        this.setState({ success: '' });
+      }, 3000);
     }
   };
   
@@ -58,19 +70,29 @@ class App extends Component {
     const { listContainer } = this.state;
     this.setState({
       listContainer: listContainer.filter((task) => task.id !== id),
+      success: 'Task deleted successfully!...'
     });
+
+    // Clear success message after 3 seconds
+    setTimeout(() => {
+      this.setState({ success: '' });
+    }, 3000);
   };
 
-
   render() {
-    const { inputValue, listContainer } = this.state;
+    const { inputValue, listContainer, error, success } = this.state;
     return(
       <div className = "App" >
         <h1>My To-Do List 📝</h1>
         <div className="input-container">
-          <input className='input' type="text" name="task" placeholder='Enter a task...' value={inputValue} onChange={this.handleInput} />
+          <input  className={`input ${error ? 'error' : ''}`} type="text" name="task" placeholder='Enter a task...' value={inputValue} onChange={this.handleInput} />
           <button className='button' type="button" onClick={this.addTask}>Add Task</button>
         </div>
+        
+        {/* Validation messages */}
+        {error && <div className="message error">{error}</div>}
+        {success && <div className="message success">{success}</div>}
+        
         <ul className='task-list'>
           {(listContainer.length === 0) ? (
             <p>No tasks yet! Add some above. ⬆️</p>
