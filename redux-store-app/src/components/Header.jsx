@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const cart = useSelector((state) => state.cart) || {item : []};
-  const cartItemCount = cart.items?.reduce((total, item) => total + item.quantity, 0) || 0
+  const cart = useSelector((state) => state.cart) || { items: [] };
+  
+  // Count unique items instead of summing quantities
+  const cartItemCount = cart.items?.length || 0;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
@@ -18,7 +20,7 @@ const Header = () => {
             <i className="bi bi-cart"></i> Cart
             {cartItemCount > 0 && (
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {cart.items.reduce((total, item) => total + item.quantity, 0)}
+                {cartItemCount}
               </span>
             )}
           </Link>
