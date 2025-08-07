@@ -28,6 +28,11 @@ header {
   border-radius: 3px;
 }
 
+.card-img-top{
+  object-fit: cover;
+  height: 200px;
+}
+
 footer {
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
