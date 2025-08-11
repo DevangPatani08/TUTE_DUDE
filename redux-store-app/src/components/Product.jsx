@@ -1,7 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Product = (props) => {
-  const { shoe, onAddToCart } = props;
+  const { shoe, onAddToCart, onIncrease, onDecrease } = props;
+  const cartItem = useSelector((state) => (state.cart.items.find((item) => item.id === shoe.id)));
+  const quantity = cartItem ? cartItem.quantity : 0;
+
   return (
     <div className="col">
       <div className="card h-100">
@@ -11,7 +15,19 @@ const Product = (props) => {
           <p className="card-text">Price: ${shoe.price.toFixed(2)}</p>
         </div>
         <div className="card-footer bg-transparent">
-          <button className="btn btn-primary w-100" onClick={onAddToCart}>Add to Cart</button>
+          {quantity === 0 ? (
+            <button className="btn btn-primary w-100" onClick={onAddToCart}>Add to Cart</button>
+          ): (
+              <div className="input-group">
+                <button type="button" className="btn btn-outline-danger" onClick={() => onDecrease()}>
+                  -
+                </button>
+                <input type="text" readOnly className="form-control text-center" value={quantity} />
+                <button type="button" className="btn btn-outline-success" onClick={() => onIncrease()}>
+                  +
+                </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

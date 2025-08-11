@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import { useDispatch } from "react-redux";
 import Product from "./Product";
-import { addItem } from "../features/cartSlice";
+import { addItem, removeItem } from "../features/cartSlice";
 
 const ProductList = () => {
   const dummy_date = [
@@ -37,6 +37,14 @@ const ProductList = () => {
     dispatch(addItem(shoe));
   };
 
+  const increaseQuantityHandler = (shoe) => {
+    dispatch(addItem(shoe));
+  };
+
+  const decreaseQuantityHandler = (shoe) => {
+    dispatch(removeItem(shoe));
+  };
+
   return (
     <div>
       <h1 className="mb-4">Our Shoe Collection</h1>
@@ -48,7 +56,7 @@ const ProductList = () => {
       ) : (
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
             {filterShoes.map(shoe => (
-              <Product key={shoe.id} shoe={shoe} onAddToCart={() => addToCartHandler(shoe)} />
+              <Product key={shoe.id} shoe={shoe} onAddToCart={() => addToCartHandler(shoe)} onIncrease={() => increaseQuantityHandler(shoe)} onDecrease={() => decreaseQuantityHandler(shoe)} />
             ))}
           </div>
       )}

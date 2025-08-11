@@ -116,8 +116,6 @@ const Payment = () => {
       alert(`Payment of $${cart.total.toFixed(2)} processed successfully!`);
       dispatch(clearCart());
       navigate('/');
-    } else {
-      alert('Please correct the form errors.');
     }
   };
 

@@ -24,11 +24,14 @@ const cartSlice = createSlice({
       const itemIndex = state.items.findIndex(item => item.id === action.payload.id)
       
       if (itemIndex >= 0) {
-        if (state.items[itemIndex].quantity > 1) {
-          state.items[itemIndex].quantity -= 1
+        const item = state.items[itemIndex];
+
+        if (item.quantity > 1) {
+          item.quantity -= 1
         } else {
           state.items.splice(itemIndex, 1)
         }
+        
         state.total -= action.payload.price
       }
     },
